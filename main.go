@@ -152,7 +152,8 @@ func getZip(scanner *bufio.Scanner) string {
 	fmt.Println("please put in your zip")
 
 	scanner.Scan()
-	return scanner.Text()
+	zip := scanner.Text()
+	return strings.ReplaceAll(zip, " ", "")
 }
 
 func getOrderNumbers(scanner *bufio.Scanner) []string {
