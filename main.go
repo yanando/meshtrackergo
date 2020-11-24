@@ -48,7 +48,6 @@ func main() {
 			status, err := getOrderStatus(fascia, locale, zip, ordernumber)
 
 			if err != nil {
-				fmt.Println(err)
 				fmt.Println(ordernumber, "error")
 			} else {
 				fmt.Println(ordernumber, status)
@@ -151,8 +150,7 @@ func getZip(scanner *bufio.Scanner) string {
 	fmt.Println("please put in your zip")
 
 	scanner.Scan()
-	zip := scanner.Text()
-	return zip
+	return scanner.Text()
 }
 
 func getOrderNumbers(scanner *bufio.Scanner) []string {
