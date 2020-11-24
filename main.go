@@ -117,7 +117,8 @@ func getLocale(scanner *bufio.Scanner) string {
 [5] BE
 [6] IT
 [7] ES
-[8] FR`)
+[8] FR
+[9] GLOBAL`)
 
 	scanner.Scan()
 	localeNum := scanner.Text()
@@ -140,6 +141,8 @@ func getLocale(scanner *bufio.Scanner) string {
 		locale = "es"
 	case "8":
 		locale = "fr"
+	case "9":
+		locale = "jx" //global.jdsports.com
 	default:
 		fmt.Println("invalid locale chosen")
 		return getLocale(scanner)
