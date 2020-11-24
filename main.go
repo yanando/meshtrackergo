@@ -49,21 +49,23 @@ func main() {
 
 			if err != nil {
 				fmt.Println(ordernumber, "error")
-			} else {
-				fmt.Println(ordernumber, status)
+				wg.Done()
+				return
+			}
 
-				switch status {
-				case "Your order has been placed.":
-					orderInfo.placed++
-				case "Your order is currently being processed.":
-					orderInfo.processing++
-				case "Your order has been despatched.":
-					orderInfo.shipped++
-				case "Your order has been delivered.":
-					orderInfo.delivered++
-				case "It looks like your order has been cancelled.":
-					orderInfo.cancelled++
-				}
+			fmt.Println(ordernumber, status)
+
+			switch status {
+			case "Your order has been placed.":
+				orderInfo.placed++
+			case "Your order is currently being processed.":
+				orderInfo.processing++
+			case "Your order has been despatched.":
+				orderInfo.shipped++
+			case "Your order has been delivered.":
+				orderInfo.delivered++
+			case "It looks like your order has been cancelled.":
+				orderInfo.cancelled++
 			}
 
 			wg.Done()
